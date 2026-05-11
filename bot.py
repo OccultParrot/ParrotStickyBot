@@ -136,7 +136,7 @@ def create_embed(title: str, description: str, color: str) -> discord.Embed:
 
 async def create_sticky_message(title: str, description: str, color: str, interaction: Interaction):
     sticky_msg = await interaction.channel.send(embed=create_embed(title, description, color))
-    db_client.post_sticky_message(sticky_msg.id, interaction.channel.id, interaction.guild.id, content)
+    db_client.post_sticky_message(sticky_msg.id, interaction.channel.id, interaction.guild.id, title, description, color)
     db_client.refresh_cache()
     await interaction.response.send_message("Sticky message created!", ephemeral=True)
 
