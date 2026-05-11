@@ -169,7 +169,7 @@ async def remove_sticky_autocomplete(interaction: Interaction, current: str) -> 
     ]
     return [
         app_commands.Choice(
-            name=f"ID: {s['message_id']} | Content: {s['content'][:30]}{'...' if len(s['content']) > 30 else ''}",
+            name=f"ID: {s['message_id']} | Title: {s['title'][:30]}{'...' if len(s['title']) > 30 else ''}",
             value=str(s["message_id"])
         )
         for s in filtered[:25]
