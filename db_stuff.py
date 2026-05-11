@@ -50,15 +50,15 @@ class DBClient:
             self.console.print(f"Error fetching listened channels: {e}", style="red")
             return []
 
-    def post_sticky_message(self, message_id: int, channel_id: int, guild_id: int, content: str):
+    def post_sticky_message(self, message_id: int, channel_id: int, guild_id: int, title: str, description: str, color: str):
         try:
             with Session(self.engine) as session:
                 session.execute(
                     text("""
-                        INSERT INTO sticky_messages (message_id, channel_id, guild_id, content)
-                        VALUES (:message_id, :channel_id, :guild_id, :content)
+                        INSERT INTO sticky_messages (message_id, channel_id, guild_id, title, description, color)
+                        VALUES (:message_id, :channel_id, :guild_id, :title, :description, :color)
                     """),
-                    {"message_id": message_id, "channel_id": channel_id, "guild_id": guild_id, "content": content}
+                    {"message_id": message_id, "channel_id": channel_id, "guild_id": guild_id, "title": title, "description": description, "color": color}
                 )
                 session.commit()
         except Exception as e:

@@ -95,12 +95,12 @@ async def on_message(message: Message):
             try:
                 old_message = await message.channel.fetch_message(sticky["message_id"])
                 await old_message.delete()
-                new_message = await message.channel.send(sticky["content"] + "\n-# This is a sticky message.")
+                new_message = await message.channel.send(embed=create_embed(sticky["title"], sticky["description"], sticky["color"]))
                 db_client.refresh_sticky_message(old_message.id, new_message.id)
                 db_client.refresh_cache()
             except discord.NotFound:
                 console.print(f"[yellow]Sticky {sticky['message_id']} not found in channel {message.channel.id}. Recreating.[/yellow]")
-                new_message = await message.channel.send(sticky["content"] + "\n-# This is a sticky message.")
+                new_message = await message.channel.send(embed=create_embed(sticky["title"], sticky["description"], sticky["color"]))
                 db_client.refresh_sticky_message(sticky["message_id"], new_message.id)
                 db_client.refresh_cache()
             except Exception as e:
@@ -122,8 +122,20 @@ async def make_sticky(interaction: Interaction):
     await interaction.response.send_modal(StickyModal(create_sticky_message))
 
 
-async def create_sticky_message(content: str, interaction: Interaction):
-    sticky_msg = await interaction.channel.send(content + "\n-# This is a sticky message.")
+def create_embed(title: str, description: str, color: str) -> discord.Embed:
+    embed_color = discord.Color.default()
+    if color:
+        try:
+            embed_color = discord.Color(int(color.lstrip("#"), 16))
+        except ValueError:
+            pass  # Invalid color, fallback to default
+
+    embed = discord.Embed(title=title, description=description, color=embed_color)
+    return embed
+
+
+async def create_sticky_message(title: str, description: str, color: str, interaction: Interaction):
+    sticky_msg = await interaction.channel.send(embed=create_embed(title, description, color))
     db_client.post_sticky_message(sticky_msg.id, interaction.channel.id, interaction.guild.id, content)
     db_client.refresh_cache()
     await interaction.response.send_message("Sticky message created!", ephemeral=True)
