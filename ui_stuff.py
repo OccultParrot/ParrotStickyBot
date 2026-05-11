@@ -4,7 +4,7 @@ from discord import Embed
 
 
 class StickyModal(Modal, title="Create Sticky Message"):
-    title = TextInput(
+    embed_title = TextInput(
         label="Title",
         style=discord.TextStyle.short,
         placeholder="Enter your title...",
@@ -31,4 +31,4 @@ class StickyModal(Modal, title="Create Sticky Message"):
         self.callback_fn = callback
 
     async def on_submit(self, interaction: discord.Interaction):
-        await self.callback_fn(self.title.value, interaction)
+        await self.callback_fn(self.embed_title.value, interaction)
