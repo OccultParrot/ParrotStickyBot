@@ -31,4 +31,4 @@ class StickyModal(Modal, title="Create Sticky Message"):
         self.callback_fn = callback
 
     async def on_submit(self, interaction: discord.Interaction):
-        await self.callback_fn(self.embed_title.value, interaction)
+        await self.callback_fn(self.embed_title.value, self.description.value, self.color.value, interaction)
