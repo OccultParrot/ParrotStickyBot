@@ -123,7 +123,7 @@ async def make_sticky(interaction: Interaction):
 
 
 def create_embed(title: str, description: str, color: str) -> discord.Embed:
-    embed_color = discord.Color.default()
+    embed_color = discord.Color.blurple()
     if color:
         try:
             embed_color = discord.Color(int(color.lstrip("#"), 16))
