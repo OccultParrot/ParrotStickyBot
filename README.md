@@ -45,6 +45,6 @@ Bang, discord bot is made. Now to make it work!
     * `OWNER_ID`: Your Discord user id. This is used to give you access to all the commands, regardless of your roles.
     * `TOKEN`: The token of the bot you created on the Discord Developer Portal.
 
-   ![Your Variables Should Look Like this](google.com)
+   ![Your Variables Should Look Like this](https://github.com/OccultParrot/ParrotStickyBot/blob/main/assets/variables.png?raw=true)
    Your Variables should look like the image above after step 4
 5. Click the `Deploy` button and wait for it to finish. Once it's done, the bot should be online in your server!
