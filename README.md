@@ -54,3 +54,6 @@ Your Railway should look like the image above after step 3
 Your Variables should look like the image above after step 5
 
 6. Click the `Deploy` button and wait for it to finish. Once it's done, the bot should be online in your server!
+
+## License
+This project is under a MIT license. Please refer to the LICENSE file for more information.
