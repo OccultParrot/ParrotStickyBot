@@ -35,8 +35,7 @@ Bang, discord bot is made. Now to make it work!
 1. Create a new project on Railway.
 2. Create a new PostgreSQL database in the project, and copy the `DATABASE_URL` found in the `Variables` tab for later.
 3. Create a new project on Railway, and paste this repository's URL when prompted to connect a GitHub repository.
-4. 
-![Your Railway should look like this after step 3]()
+   ![Your Railway should look like this after step 3](https://github.com/OccultParrot/ParrotStickyBot/blob/main/assets/railway.png)
 
 4. In the `Variables` tab of the ParrotStickyBot node, add the following variables:
     * `DATABASE_URL`: The `DATABASE_URL` you copied from the PostgreSQL database you created in step 2.
@@ -44,4 +43,5 @@ Bang, discord bot is made. Now to make it work!
       servers.
     * `OWNER_ID`: Your Discord user id. This is used to give you access to all the commands, regardless of your roles.
     * `TOKEN`: The token of the bot you created on the Discord Developer Portal.
+
 5. Click the `Deploy` button and wait for it to finish. Once it's done, the bot should be online in your server!
