@@ -47,6 +47,8 @@ Your Railway should look like the image above after step 3
     * `OWNER_ID`: Your Discord user id. This is used to give you access to all the commands, regardless of your roles.
     * `TOKEN`: The token of the bot you created on the Discord Developer Portal.
 
+   :warning: ***NEVER SHARE THE CONTENTS OF ANY OF THESE VARIABLES*** :warning:
+
    ![Your Variables Should Look Like this](https://github.com/OccultParrot/ParrotStickyBot/blob/main/assets/variables.png?raw=true)
 
 Your Variables should look like the image above after step 5
